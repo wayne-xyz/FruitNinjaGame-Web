@@ -19,7 +19,7 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def on_close(self):
         print("WebSocket connection closed")
         WebSocketHandler.connections.remove(self)
-
+ 
 def make_app():
     return tornado.web.Application([
         (r"/websocket", WebSocketHandler),
@@ -28,5 +28,5 @@ def make_app():
 if __name__ == "__main__":
     app = make_app()
     app.listen(8080)
-    print("WebSocket server is running on port 8888")
+    print("WebSocket server is running on port 8080")
     tornado.ioloop.IOLoop.current().start()
