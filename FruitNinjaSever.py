@@ -5,6 +5,11 @@ import tornado.websocket
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
     connections = set()
 
+    def check_origin(self, origin):
+        return True
+    
+    # https://stackoverflow.com/questions/24851207/tornado-403-get-warning-when-opening-websocket
+    
     def open(self):
         print("WebSocket connection opened")
         WebSocketHandler.connections.add(self)
@@ -27,6 +32,6 @@ def make_app():
 
 if __name__ == "__main__":
     app = make_app()
-    app.listen(8080)
-    print("WebSocket server is running on port 8080")
+    app.listen(8888)
+    print("WebSocket server is running on port 8888")
     tornado.ioloop.IOLoop.current().start()

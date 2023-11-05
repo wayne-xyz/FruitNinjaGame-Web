@@ -16,7 +16,7 @@
         const sendButton = document.getElementById('send-button');
 
         // Replace 'ws://localhost:8080/websocket' with the actual WebSocket URL of your server.
-        const socket = new WebSocket('ws://localhost:8080/websocket');
+        const socket = new WebSocket('ws://127.0.0.1:8888/websocket');
 
         socket.onopen = () => {
             console.log('WebSocket connection opened');
