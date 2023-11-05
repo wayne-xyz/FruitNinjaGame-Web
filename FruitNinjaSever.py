@@ -19,7 +19,8 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         # Forward the message to all connected clients (except the sender)
         for connection in WebSocketHandler.connections:
             if connection != self:
-                connection.write_message(f"Forwarded message: {message}")
+                print("Forwarded message: {message}")
+                connection.write_message(message)
 
     def on_close(self):
         print("WebSocket connection closed")
